@@ -89,7 +89,7 @@ console.log(CemberinAlani(15));
 
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
 
-let ucetambolunenler,
+let ucetambolunenler = [],
   enkucuk = sayilar[0],
   enbuyuk = sayilar[0],
   ucebolunenlerintoplami,
@@ -115,23 +115,44 @@ console.log("En büyük değer:", enbuyuk);
 
 // 3b çözümü:
 
-/* kodlar buraya */
-
+sayilar.forEach(function (item) {
+  if (item % 3 == 0) {
+    ucetambolunenler.push(item);
+  }
+})
 // 3c çözümü:
-
-/* kodlar buraya */
-
+ucebolunenlerintoplami = ucetambolunenler.reduce((item, result) => item += result);
 // 3d çözümü
-
-/* kodlar buraya */
-
+besyuzdenkucuksayilar = sayilar.filter((item) => item > 500);
 // 3e çözümü
 
-/* kodlar buraya */
+
+siralisayilar = besyuzdenkucuksayilar.sort();
 
 // 3f çözümü
 
-/* kodlar buraya */
+tekraredensayilar = [];
+
+besyuzdenkucuksayilar.forEach(function (item, index) {
+
+  let tekrarSayisi = 0;
+  for (let i = index + 1; i < besyuzdenkucuksayilar.length; i++) {
+    if (sayilar[i] === item) {
+      tekrarSayisi++;
+    }
+  }
+
+  if (tekrarSayisi > 0) {
+
+    if (!tekraredensayilar.some(e => e.includes(item))) {
+      tekraredensayilar.push(`${item} sayısı ${tekrarSayisi + 1} kere tekrar edilmiştir`);
+    }
+  }
+});
+
+
+
+
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
